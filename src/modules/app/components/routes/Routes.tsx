@@ -8,6 +8,8 @@ import { StyledRoutes, StyledRoutesContainer } from "./style";
 
 import HomePage from "../../../homePage";
 import Navbar from "../navbar";
+import SignIn from "../../../signIn";
+import DashBoard from "../../../dashboard";
 
 // import ReactGA from 'react-ga'
 
@@ -34,7 +36,7 @@ export const routes: RouteDefinition[] = [
     component: HomePage,
     protected: false,
     redirect: Paths.homePage,
-    title: "Farm",
+    title: "RecHelper",
     pathType: 1,
   },
   {
@@ -42,8 +44,24 @@ export const routes: RouteDefinition[] = [
     component: HomePage,
     protected: false,
     redirect: Paths.homePage,
-    title: "Farm",
+    title: "RecHelper",
     pathType: 2,
+  },
+  {
+    path: Paths.dashboard,
+    component: DashBoard,
+    protected: false,
+    redirect: Paths.dashboard,
+    title: "DashBoard",
+    pathType: 3,
+  },
+  {
+    path: Paths.signIn,
+    component: SignIn,
+    protected: false,
+    redirect: Paths.signIn,
+    title: "signIn",
+    pathType: 4,
   }
 ].concat(notFoundRoute as any); // Ensure that notFound is the last route
 
