@@ -53,7 +53,7 @@ const Navbar = () => {
 
   const tosignIn = () => {
     history.push(Paths.signIn);
-    setActiveLink("farming");
+    setActiveLink("signIn");
   };
 
   const path = window.location.pathname

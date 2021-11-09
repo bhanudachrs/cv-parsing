@@ -6,12 +6,7 @@ export interface ButtonAreaProps {
   disabled?: boolean;
 }
 export const MainContainer = styled.div`
-  width: 85%;
-  margin: 0 auto;
-  @media (min-width: ${screenSizes.mediaM}px) {
-    width: 70%;
-    margin: 0 auto;
-  }
+  margin : 80px 0px;
 `;
 
 export const ThreeColumns = styled.div`

@@ -80,7 +80,7 @@ export const NavTab = styled.li<any>`
   position: relative;
   display: flex;
   a {
-    font-family: sans serif;
+    font-family: sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
