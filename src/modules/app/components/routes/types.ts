@@ -3,8 +3,6 @@ export enum Paths {
   homePage = "/homePage",
   dashboard = "/dashboard",
   signIn = "/signIn",
-  // profile = "/profile",
-  // jobAlerts = "/jobAlerts",
-  // savedjobs = "/savedjobs",
-  // actionCenter = "/actionCenter"
+  hrSignIn = "/hrSignIn",
+  canSignIn = "/canSignIn"
 }

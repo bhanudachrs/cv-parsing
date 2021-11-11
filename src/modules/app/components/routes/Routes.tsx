@@ -14,6 +14,8 @@ import Footer from "../footer";
 import Profile from "../../../dashboard/Components/profile";
 import JobAlerts from "../../../dashboard/Components/jobAlerts";
 import ActionCenter from "../../../dashboard/Components/actionCenter";
+import CanSignIn from "../../../signIn/components/canSignIn";
+import HrSignIn from "../../../signIn/components/hrSignIn";
 
 // import ReactGA from 'react-ga'
 
@@ -68,22 +70,22 @@ export const routes: RouteDefinition[] = [
     pathType: 4,
   },
   
-  // {
-  //   path: Paths.jobAlerts,
-  //   component: JobAlerts,
-  //   protected: false,
-  //   redirect: Paths.jobAlerts,
-  //   title: "jobAlerts",
-  //   pathType: 5,
-  // },
-  // {
-  //   path: Paths.actionCenter,
-  //   component: ActionCenter,
-  //   protected: false,
-  //   redirect: Paths.actionCenter,
-  //   title: "actionCenter",
-  //   pathType: 6,
-  // },
+  {
+    path: Paths.canSignIn,
+    component: CanSignIn,
+    protected: false,
+    redirect: Paths.canSignIn,
+    title: "canSignIn",
+    pathType: 5,
+  },
+  {
+    path: Paths.hrSignIn,
+    component: HrSignIn,
+    protected: false,
+    redirect: Paths.hrSignIn,
+    title: "Hr SignIn",
+    pathType: 6,
+  },
 ].concat(notFoundRoute as any); // Ensure that notFound is the last route
 
 export interface RouteDefinition {
