@@ -11,7 +11,8 @@ justify-content : space-around;
 border-bottom : 1px solid #1b2732;
 
 h3 {
-    color : ${colors.yellow};
+    cursor:pointer; 
+    color : ${colors.black};
     padding: 5px 10px;
     font-size:20px;
     &:hover {
@@ -46,7 +47,7 @@ div {
     font-size:18px;
     border-bottom:1px solid black;
     &:hover { 
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 } 
 

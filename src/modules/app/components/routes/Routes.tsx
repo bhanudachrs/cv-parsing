@@ -10,6 +10,10 @@ import HomePage from "../../../homePage";
 import Navbar from "../navbar";
 import SignIn from "../../../signIn";
 import DashBoard from "../../../dashboard";
+import Footer from "../footer";
+import Profile from "../../../dashboard/Components/profile";
+import JobAlerts from "../../../dashboard/Components/jobAlerts";
+import ActionCenter from "../../../dashboard/Components/actionCenter";
 
 // import ReactGA from 'react-ga'
 
@@ -55,14 +59,31 @@ export const routes: RouteDefinition[] = [
     title: "DashBoard",
     pathType: 3,
   },
-  {
-    path: Paths.signIn,
-    component: SignIn,
-    protected: false,
-    redirect: Paths.signIn,
-    title: "signIn",
-    pathType: 4,
-  }
+  // {
+  //   path: Paths.signIn,
+  //   component: SignIn,
+  //   protected: false,
+  //   redirect: Paths.signIn,
+  //   title: "signIn",
+  //   pathType: 4,
+  // },
+  
+  // {
+  //   path: Paths.jobAlerts,
+  //   component: JobAlerts,
+  //   protected: false,
+  //   redirect: Paths.jobAlerts,
+  //   title: "jobAlerts",
+  //   pathType: 5,
+  // },
+  // {
+  //   path: Paths.actionCenter,
+  //   component: ActionCenter,
+  //   protected: false,
+  //   redirect: Paths.actionCenter,
+  //   title: "actionCenter",
+  //   pathType: 6,
+  // },
 ].concat(notFoundRoute as any); // Ensure that notFound is the last route
 
 export interface RouteDefinition {
@@ -108,7 +129,7 @@ const Routes: React.FC<Props & RoutesProps> = () => {
             })}
           </Switch>
         </StyledRoutes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </StyledRoutesContainer>
   );
