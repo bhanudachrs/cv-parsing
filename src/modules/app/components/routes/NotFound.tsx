@@ -23,7 +23,6 @@ const Text = styled.div`
 export function NotFound() {
   return (
     <StyledNotFound>
-      {/* <img src={require('assets/image/page-not-found.svg')} alt="" /> */}
       <Title>Page Not Found</Title>
       <Text>The page you are looking for was moved, removed, renamed or might never existed</Text>
     </StyledNotFound>

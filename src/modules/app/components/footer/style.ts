@@ -12,7 +12,7 @@ background : #1b2732;
   color: ${colors.yellow};
  }
   p {
-    font-family: Regular;
+    font-family: san-serif;
     font-size: 18px;
     line-height: 23px;
     letter-spacing: 0.05em;

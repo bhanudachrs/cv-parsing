@@ -23,11 +23,11 @@ const DashBoard = () => {
             </HeadLineContainer>
            
                         {
-                            activeTab === "/Profile" ? <Profile /> 
+                            activeTab === "/Profile" ? <Profile setActiveTab={setActiveTab} /> 
                             : activeTab === "/jobAlerts" ? <JobAlerts />  
                             : activeTab === "/savedjobs" ? <SavedJobs />  
                             : activeTab === "/actionCenter" ? <ActionCenter />  
-                            : <Profile />
+                            : <Profile setActiveTab={setActiveTab} />
                         }
                         
                        

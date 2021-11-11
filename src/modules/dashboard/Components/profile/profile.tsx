@@ -6,7 +6,8 @@ import Upload from "../../../../assets/icons/upload_logo.png"
 import { colors } from '../../../../shared/styles/theme'
 import { Container, LeftContainer, RightContainer } from '../../style'
 
-const Profile = () => {
+const Profile = (props : any) => {
+    const { setActiveTab  } = props
     return (
         <Container>
         <LeftContainer>
@@ -14,12 +15,12 @@ const Profile = () => {
             Bhanu Prasad
             </h1>
             <h3> Activity </h3>
-            <div >  Saved jobs </div>
-            <div > Job alerts </div>
-            <div> Action Center </div>
+            <div onClick={() => setActiveTab("/savedjobs")}>  Saved jobs </div>
+            <div onClick={() => setActiveTab("/jobAlerts")}> Job alerts </div>
+            {/* <div> Action Center </div> */}
             </LeftContainer>
             <RightContainer>
-        <MainContainer >
+        {/* <MainContainer > */}
             <MainSection>
                 <h1>
                     Manage Profile
@@ -175,7 +176,7 @@ const Profile = () => {
                             </GridContainer>
                     </InfoContainer>
                 </MainSection>
-        </MainContainer>
+        
         </RightContainer>
                 </Container>
     )

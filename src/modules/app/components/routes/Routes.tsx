@@ -59,14 +59,14 @@ export const routes: RouteDefinition[] = [
     title: "DashBoard",
     pathType: 3,
   },
-  // {
-  //   path: Paths.signIn,
-  //   component: SignIn,
-  //   protected: false,
-  //   redirect: Paths.signIn,
-  //   title: "signIn",
-  //   pathType: 4,
-  // },
+  {
+    path: Paths.signIn,
+    component: SignIn,
+    protected: false,
+    redirect: Paths.signIn,
+    title: "signIn",
+    pathType: 4,
+  },
   
   // {
   //   path: Paths.jobAlerts,

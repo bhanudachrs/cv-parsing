@@ -37,10 +37,14 @@ export const ButtonContainer = styled.div`
  `
 
  export const MainSection = styled.div`
+   width : 800px;
   background : ${colors.yellow};
   border-radius: 4px;
   padding : 20px;
-  margin : 20px 0px;
+  h1 {
+      padding:10px;
+      border-bottom : 1px solid black;  
+  }
  `
 
  export const GridContainer = styled.div`
