@@ -1,4 +1,4 @@
-import React from "react";
+import  React from "react";
 import { Container, FlexContainer, GridContainer, GridItem, HeadingContainer, VideoContainer } from "./style";
 //@ts-ignore
 import Video from '../../assets/videos/video.mp4';
