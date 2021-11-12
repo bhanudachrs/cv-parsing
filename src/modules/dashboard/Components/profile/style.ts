@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { colors } from "../../../../shared/styles/theme";
+import { colors, screenSizes } from "../../../../shared/styles/theme";
 
 export const Button = styled.button`
  border : 1px solid black;
  border-radius:4px;
  margin:10px 0px;
  background : transparent;
- width : 250px;
  cursor : pointer;
+ width : 250px;
  display:flex;
  justify-content:flex-start ;
  padding : 10px 10px;
@@ -27,6 +27,8 @@ export const Button = styled.button`
     background:${colors.black};
     color:${colors.white}
 }
+@media (min-width: ${screenSizes.mediaS}px) {
+}
 `
 
 export const ButtonContainer = styled.div`
@@ -37,7 +39,6 @@ export const ButtonContainer = styled.div`
  `
 
  export const MainSection = styled.div`
-   width : 800px;
   background : ${colors.yellow};
   border-radius: 4px;
   padding : 20px;
@@ -45,6 +46,9 @@ export const ButtonContainer = styled.div`
       padding:10px;
       border-bottom : 1px solid black;  
   }
+  @media (min-width: ${screenSizes.mediaS}px) {
+    width : 800px; 
+}
  `
 
  export const GridContainer = styled.div`
@@ -54,6 +58,9 @@ export const ButtonContainer = styled.div`
  `
 
  export const GridItem = styled.div`
+ h3 {
+     font-size:16px;
+ }
  
  `
  export const InfoContainer = styled.div`

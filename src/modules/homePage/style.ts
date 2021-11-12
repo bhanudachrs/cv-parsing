@@ -60,14 +60,14 @@ p {
   letter-spacing: 0.05em;
 }
 @media (min-width: ${screenSizes.mediaS}px) {
-  padding : 20px 100px;
+  padding : 20px 240px;
 
 h1 {
-  font-size : 50px;
+  font-size : 40px;
 }
 
 h3 {
-  font-size : 25px;
+  font-size : 18px;
 }
 }
 `
@@ -102,11 +102,6 @@ export const GridItem = styled.div`
 p {
   font-size : 16px;
   font-family: sans-serif;
-}
-@media (min-width: ${screenSizes.mediaS}px) {
-  p {
-    font-size : 20px;
-  }
 }
 `
 

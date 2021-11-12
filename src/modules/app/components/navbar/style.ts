@@ -26,15 +26,15 @@ export const NavContainer = styled.div`
 export const AppLogo = styled.img`
   cursor: pointer;
   height: 34px;
-  margin-top: 20px;
+  margin-top: 18px;
   @media (min-width: ${screenSizes.mediaS}px) {
-    margin-top: 5px;
+    margin-top: 0px;
     height: 54px;
-    margin-bottom: 0px;
     width: 130px;
     margin-left: 40px;
   }
   @media (min-width: ${screenSizes.mediaL}px) {
+    
     margin-left: 40px;
   }
   @media (min-width: ${screenSizes.mediaXL}px) {
@@ -47,17 +47,13 @@ export const AppLogo = styled.img`
 
 export const AppName = styled.div`
 cursor: pointer;
-height: 34px;
-// margin-top: 4px;
+margin:18px 0px 0px 10px;
 font-size:40px;
 padding:0px 10px;
 font-family : Monospace ;
 @media (min-width: ${screenSizes.mediaS}px) {
-  // margin-top: 5px;
+  margin:5px 0px 0px 15px;
   height: 54px;
-  margin-bottom: 0px;
-  // width: 130px;
-  margin-left: 40px;
 }
 
 &:hover {

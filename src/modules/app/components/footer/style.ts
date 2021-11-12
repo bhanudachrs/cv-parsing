@@ -22,6 +22,9 @@ grid-template-columns: repeat(2, 1fr);
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 40px;
 }
+@media (min-width: ${screenSizes.mediaS}px) {
+  padding: 0px 120px;
+}
 `
 
 export const GridItem = styled.div`
@@ -33,9 +36,6 @@ p {
   color: ${colors.white};
 }
 @media (min-width: ${screenSizes.mediaS}px) {
-  padding: 20px 40px;
-  p {
-    font-size: 18px;
-  }
+  padding: 20px 0px;
 }
 `
