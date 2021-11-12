@@ -16,6 +16,7 @@ import JobAlerts from "../../../dashboard/Components/jobAlerts";
 import ActionCenter from "../../../dashboard/Components/actionCenter";
 import CanSignIn from "../../../signIn/components/canSignIn";
 import HrSignIn from "../../../signIn/components/hrSignIn";
+import HrDashboard from "../../../hrDashboard";
 
 // import ReactGA from 'react-ga'
 
@@ -85,6 +86,14 @@ export const routes: RouteDefinition[] = [
     redirect: Paths.hrSignIn,
     title: "Hr SignIn",
     pathType: 6,
+  },
+  {
+    path: Paths.hrDashboard,
+    component: HrDashboard,
+    protected: false,
+    redirect: Paths.hrDashboard,
+    title: "Hr SignIn",
+    pathType: 7,
   },
 ].concat(notFoundRoute as any); // Ensure that notFound is the last route
 

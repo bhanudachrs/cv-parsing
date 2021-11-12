@@ -1,8 +1,14 @@
 import React from 'react'
 import { MainContainer } from '../../../../shared/styles/styled'
+import history from '../../../app/components/history'
 import { Button, Container, Input } from '../../style'
 
 const HrSignIn = () => {
+
+    const toHrDashboard = () => {
+        history.push("/dashboard")
+    }
+
 return(
     <MainContainer>
     <Container>
@@ -16,7 +22,7 @@ return(
     <h3> Mobile Number </h3>
     <Input placeholder="Mobile Number" />
 
-    <Button style={{marginTop : "50px"}}>
+    <Button style={{marginTop : "50px"}} onClick={toHrDashboard}>
         Register
         </Button>
          </Container>

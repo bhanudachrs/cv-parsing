@@ -4,12 +4,12 @@ import { colors, screenSizes } from "../../../../shared/styles/theme";
 export const NavContainerWrap = styled.div`
   display: block;
   background: ${colors.neon};
-  height: auto;
+  height: 80px;
   position: fixed;
   width: 100%;
   z-index: 100000;
-  max-width: 1800px;
-  margin: auto;
+  // max-width: 1800px;
+  // margin: auto;
   -webkit-backface-visibility: hidden;
   @media (min-width: ${screenSizes.mediaS}px) {
     -webkit-backface-visibility: hidden;
@@ -26,7 +26,7 @@ export const NavContainer = styled.div`
 export const AppLogo = styled.img`
   cursor: pointer;
   height: 34px;
-  margin-top: 10px;
+  margin-top: 20px;
   @media (min-width: ${screenSizes.mediaS}px) {
     margin-top: 5px;
     height: 54px;
@@ -48,7 +48,7 @@ export const AppLogo = styled.img`
 export const AppName = styled.div`
 cursor: pointer;
 height: 34px;
-margin-top: 4px;
+// margin-top: 4px;
 font-size:40px;
 padding:0px 10px;
 font-family : Monospace ;
@@ -67,14 +67,6 @@ font-family : Monospace ;
 }
 `
 
-export const ToggleMenu = styled.img`
-  display: block;
-  margin: 20px;
-  @media (min-width: ${screenSizes.mediaS}px) {
-    display: none;
-  }
-`;
-
 export const NavTabs = styled.ul`
   list-style: none;
   transition: all 0.3s;
@@ -82,6 +74,9 @@ export const NavTabs = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  @media (max-width: ${screenSizes.mediaS}px) {
+    display : none;
+  }
 `;
 export const NavTab = styled.li<any>`
   cursor: pointer;
