@@ -23,7 +23,7 @@ export const colors: Colors = {
 	green: '#01D14E',
 	base: '#313131',
 	black: '#333333',
-	yellow: '#F3B723',
+	yellow: '#FFF300',
 	buttonColor: '#F3B723',
 	cardBackground: '#2F445A',
 	gray: '#979797',

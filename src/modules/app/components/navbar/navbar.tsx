@@ -4,12 +4,14 @@ import {
   NavTabs,
   NavTab,
   NavContainerWrap,
+  AppLogo,
+  AppName,
 } from "./style";
 import { useSelector, useDispatch } from "react-redux";
 import { Paths } from "../routes/types";
 import history from "../history";
 import { Redirect } from "react-router-dom";
-
+// import imag from "../../../../assets/icons/mainLogo.png"
 const Navbar = () => {
 
   const [activeLink, setActiveLink] = React.useState(history.location.pathname);
@@ -36,19 +38,19 @@ const Navbar = () => {
     return history.listen((location) => {
       // //console.log(`You changed the page to: ${location.pathname}`);
       const path = history.location.pathname;
-      if (path === "/swap") {
-        setActiveLink("swap");
+      if (path === "/homePage") {
+        setActiveLink("homePage");
       }
     });
   }, [history]);
   const toHomePage = () => {
     history.push(Paths.homePage);
-    setActiveLink("swap");
+    setActiveLink("homePage");
   };
 
   const toDashboard = () => {
     history.push(Paths.dashboard);
-    setActiveLink("pool");
+    setActiveLink("dashboard");
   };
 
   const tosignIn = () => {
@@ -59,68 +61,50 @@ const Navbar = () => {
   const path = window.location.pathname
   // //console.log(activeLink,"path",path.slice(1,path.length))
 
-  useEffect(() => {
-    //console.log("setActiveLink")
-    const newPath = path.slice(1,path.length)
-    if(activeLink !== newPath) {
-      // //console.log("newPath",newPath)
-      if(newPath === "add-liquidity") {
-        setActiveLink("pool")
-      } else if(newPath === "farmDetails") {
-       setActiveLink("farming") 
-      } else {
-      setActiveLink(newPath)
-    }
-    }
-  }, [path])
+  // useEffect(() => {
+  //   //console.log("setActiveLink")
+  //   const newPath = path.slice(1,path.length)
+  //   if(activeLink !== newPath) {
+  //     // //console.log("newPath",newPath)
+  //     if(newPath === "add-liquidity") {
+  //       setActiveLink("pool")
+  //     } else if(newPath === "farmDetails") {
+  //      setActiveLink("farming") 
+  //     } else {
+  //     setActiveLink(newPath)
+  //   }
+  //   }
+  // }, [path])
 
   return (
     <NavContainerWrap>
-      {/* {console.log("view port of navbar")} */}
       <NavContainer>
-        {/* <NavWrap> */}
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <a href="https://www.busta.gg/" target="_blank">
-            {/* <AppLogo
-              src={require("../../../../assets/image/logo.svg").default}
-            /> */}
-          </a>
+        <div style={{ display: "flex", alignItems: "center" }}
+        onClick={toHomePage}
+        >
+            <AppLogo
+              src={require("../../../../assets/icons/mainLogo.png").default}
+            />
+          <AppName
+              onClick={toHomePage}
+            >
+              RecHelper
+            </AppName>
         </div>
         <NavTabs
-          style={{
-            display: "flex",
-          }}
         >
-          <div
-            style={{
-              display: "flex",
-              borderRadius: "4px",
-              padding: "4px",
-            }}
-          >
-            <NavTab
-              isActiveTab={
-                activeLink === "homePage" || activeLink === "" ? true : false
-              }
-              onClick={toHomePage}
-              // disabled={true}
-              // style={{
-              //   background: "#1b2732",
-              //   opacity: "0.5",
-              //   cursor: "inherit",
-              // }}
-            >
-              <a>RecHelper </a>
-              {/* <BetaTag> coming soon </BetaTag>  */}
-            </NavTab>
-
             <NavTab
               isActiveTab={activeLink === "signIn" ? true : false}
               onClick={tosignIn}
             >
               <a>SignIn</a>
             </NavTab>
-          </div>
+            {/* <NavTab
+              isActiveTab={activeLink === "signIn" ? true : false}
+              onClick={tosignIn}
+            >
+              <a>Logout</a>
+            </NavTab> */}
         </NavTabs>
         
       </NavContainer>

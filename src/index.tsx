@@ -26,7 +26,7 @@ function versionCheck() {
   } else if (oldVersion === false && history.location.pathname !== "/v2/farmDetails") {
     localStorage.setItem("oldVersionCheck", JSON.stringify(true));
   }
- 
+
 }
 
 

@@ -10,6 +10,13 @@ import HomePage from "../../../homePage";
 import Navbar from "../navbar";
 import SignIn from "../../../signIn";
 import DashBoard from "../../../dashboard";
+import Footer from "../footer";
+import Profile from "../../../dashboard/Components/profile";
+import JobAlerts from "../../../dashboard/Components/jobAlerts";
+import ActionCenter from "../../../dashboard/Components/actionCenter";
+import CanSignIn from "../../../signIn/components/canSignIn";
+import HrSignIn from "../../../signIn/components/hrSignIn";
+import Auth from "./auth";
 
 // import ReactGA from 'react-ga'
 
@@ -50,7 +57,7 @@ export const routes: RouteDefinition[] = [
   {
     path: Paths.dashboard,
     component: DashBoard,
-    protected: false,
+    protected: true,
     redirect: Paths.dashboard,
     title: "DashBoard",
     pathType: 3,
@@ -62,7 +69,24 @@ export const routes: RouteDefinition[] = [
     redirect: Paths.signIn,
     title: "signIn",
     pathType: 4,
-  }
+  },
+  
+  {
+    path: Paths.canSignIn,
+    component: CanSignIn,
+    protected: false,
+    redirect: Paths.canSignIn,
+    title: "canSignIn",
+    pathType: 5,
+  },
+  {
+    path: Paths.hrSignIn,
+    component: HrSignIn,
+    protected: false,
+    redirect: Paths.hrSignIn,
+    title: "Hr SignIn",
+    pathType: 6,
+  },
 ].concat(notFoundRoute as any); // Ensure that notFound is the last route
 
 export interface RouteDefinition {
@@ -104,11 +128,12 @@ const Routes: React.FC<Props & RoutesProps> = () => {
             {routes.map((route, i) => {
               const render = getRouteRenderWithAuth(route, i);
               const rest = { render };
+              console.log(route)
               return <Route key={i} path={route.path} exact {...rest} />;
             })}
           </Switch>
         </StyledRoutes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </StyledRoutesContainer>
   );
