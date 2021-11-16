@@ -79,20 +79,26 @@ const Navbar = () => {
   return (
     <NavContainerWrap>
       <NavContainer>
-        <div style={{ display: "flex", alignItems: "center" }}
+        {/* <div style={{ display: "flex", alignItems: "center" }}
         onClick={toHomePage}
-        >
-            <AppLogo
+        > */}
+            {/* <AppLogo
               src={require("../../../../assets/icons/mainLogo.png").default}
-            />
+            /> */}
           <AppName
               onClick={toHomePage}
             >
               RecHelper
             </AppName>
-        </div>
+        {/* </div> */}
         <NavTabs
         >
+          {/* <NavTab
+              isActiveTab={activeLink === "signIn" ? true : false}
+              onClick={tosignIn}
+            >
+          <a>career guuidence</a>
+          </NavTab> */}
             <NavTab
               isActiveTab={activeLink === "signIn" ? true : false}
               onClick={tosignIn}
