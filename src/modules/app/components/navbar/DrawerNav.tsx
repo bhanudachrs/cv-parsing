@@ -13,8 +13,15 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles(()=>({
     link:{
         textDecoration:"none",
-        color: "blue",
+        color: "#00D7E7",
         fontSize: "20px",
+        padding:"10px",
+        border:"2px solid neon",
+        "&:hover":{
+        background: "#1b2732",
+        borderRadius: "4px",
+        color:"white"
+      }
     },
     icon:{
         color: "white"
@@ -24,36 +31,34 @@ const useStyles = makeStyles(()=>({
 function DrawerComponent() {
 const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
+  const drawerWidth = 240;
   return (
     <>
       <Drawer
+      anchor={'top'}
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >
         <List>
-         <ListItem onClick={() => setOpenDrawer(false)}>
+        
+          <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/">Home</Link>
+              <Link className={classes.link} to="/">Home</Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/about">About</Link>
+              <Link className={classes.link} to="/Signin">Signin</Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/contact">Contact</Link>
-            </ListItemText>
-          </ListItem>
-          <ListItem onClick={() => setOpenDrawer(false)}>
-            <ListItemText>
-              <Link to="/about">Faq</Link>
+              <Link className={classes.link} to="/about">Dashboard</Link>
             </ListItemText>
           </ListItem>
         </List>
       </Drawer>
-      <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
+      <IconButton style={{marginTop:"8px"}} onClick={() => setOpenDrawer(!openDrawer)}>
         <MenuIcon />
       </IconButton>
     </>

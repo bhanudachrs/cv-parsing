@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     card:{
         height: "auto", 
         width: "500px",
-         minWidth: "350px",
+        minWidth: "350px",
         maxWidth: "500px",
         margin:theme.spacing(10)
     },
@@ -53,20 +53,19 @@ const CanSignIn = () => {
         cPassword: ""
     })
     const handleSubmit = () => {
+        if(UserData.password.length < 8){
+            setUserDataErr(prevState => {
+                return { ...prevState, password:"password must contain 8 character"}
+            });
+            return
+        }
+       else if(UserData.password.length >= 8){
+            setUserDataErr(prevState => {
+                return { ...prevState, password:""}
+            });
+        }
         if (mode == 'Register') {
             console.log(UserData)
-
-            if(UserData.password.length < 8){
-                setUserDataErr(prevState => {
-                    return { ...prevState, password:"password must contain 8 character"}
-                });
-                return
-            }else if(UserData.password.length >= 8){
-                setUserDataErr(prevState => {
-                    return { ...prevState, password:""}
-                });
-                return
-            }
             if(UserData.password != UserData.cPassword){
                 setUserDataErr(prevState => {
                     return { ...prevState, cPassword:"password mismatched"}
@@ -101,7 +100,6 @@ const CanSignIn = () => {
             <Container>
                 <Grid
                     container
-                    spacing={4}
                     justifyContent="center"
                 >
                     <Card className={classes.card}>
@@ -205,13 +203,14 @@ const CanSignIn = () => {
                                             onChange={handleChange}
                                             name="password"
                                             type="password"
-                                            // required
-                                            validators={['minNumber:8']}
-                                            errorMessages={['password must contain 8 charcter']}
+                                            requireds
+                                            // validators={['minNumber:8']}s
+                                            // errorMessages={['password must contain 8 charcter']}
                                             value={UserData.password}
                                             variant="standard"
                                             fullWidth
                                         />
+                                        <ErrText>{UserDataErr.password}</ErrText>
                                     </Grid>
 
                                     <Grid item xs={12} className={classes.InputMr}>

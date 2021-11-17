@@ -17,59 +17,97 @@ overflow: hidden;
 export const HeadingContainer = styled.div`
 position: absolute; 
 top: 100px; 
-left:200px;  
+left:20px;  
 font-family: sans-serif;
 h1 {
-  color: #1b2732;
-  font-size:50px;
+  color: ${colors.neon};
+  font-size:40px;
 }
 h3 {
   color:${colors.white};
-  font-size:30px;
+  font-size:18px;
 }
 h6 {
   color:${colors.white};
-  font-size:20px;
+  font-size:14px;
+}
+@media (min-width: ${screenSizes.mediaS}px) {
+  left:200px; 
+  h1 {
+    font-size:50px;
+  }
+  h3 {
+    font-size:30px;
+  }
+  h6 {
+    font-size:20px;
+  }
 }
 `
 
 export const Container = styled.div`
-margin : 20px 100px;
+padding : 20px 90px;
 
 h1 {
-  font-size : 50px;
+  font-size : 30px;
 }
 
 h3 {
-  font-size : 25px;
+  font-size : 18px;
+}
+p {
+  line-height: 23px;
+  letter-spacing: 0.05em;
+}
+@media (min-width: ${screenSizes.mediaS}px) {
+  padding : 20px 240px;
+
+h1 {
+  font-size : 40px;
+}
+
+h3 {
+  font-size : 18px;
+}
 }
 `
 
 export const GridContainer = styled.div`
 display : grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(1, 1fr);
 grid-column-gap: 40px;
+
+@media (min-width: ${screenSizes.mediaS}px) {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: ${screenSizes.mediaM}px) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: ${screenSizes.mediaXL}px) {
+  grid-template-columns: repeat(4, 1fr);
+}
 `
 
 export const GridItem = styled.div`
   img {
-    height : 250px;
-    width:250px;
+    height : 160px;
+    width:160px;
+    border-radius:10px;
     &:hover {
         transform: scale(1.1);
     }
   }
 
 p {
+  font-size : 16px;
   font-family: sans-serif;
-  // font-weight:600px;
-  font-size : 20px;
 }
 `
 
 export const FlexContainer = styled.div`
 display : flex;
-justify-content : space-around;
+justify-content : flex-start;
 
 img {
   vertical-align:middle;
@@ -79,11 +117,22 @@ img {
     transform: scale(1.0);
 }
 }
-span  {
+// span  {
+//   vertical-align:middle;
+// font-size : 25px;
+// }
+b {
   vertical-align:middle;
-font-size : 25px;
+  //  font-size : 25px;
+  font-size : 20px;
+  padding:10px 0px 0px 20px;
 }
 
+@media (min-width: ${screenSizes.mediaS}px) {
+  span  {
+  font-size : 25px;
+  }
+}
 
 `
 

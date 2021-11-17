@@ -9,7 +9,7 @@ export const StyledRoutesContainer = styled.div`
   flex: 1;
   max-width: 1600px;
   width: 100%;
-  margin: auto;
+  // margin: auto;
   min-height: 100vh;
 `;
 

@@ -17,6 +17,7 @@ import ActionCenter from "../../../dashboard/Components/actionCenter";
 import CanSignIn from "../../../signIn/components/canSignIn";
 import HrSignIn from "../../../signIn/components/hrSignIn";
 import Auth from "./auth";
+import HrDashboard from "../../../hrDashboard";
 
 // import ReactGA from 'react-ga'
 
@@ -29,6 +30,9 @@ import Auth from "./auth";
 // console.log("🚀 ~ file: Routes.tsx ~ line 18 ~ history", history)
 
 /* const LazyDocument = lazy(() => import('modules/home')) */
+
+
+
 
 const notFoundRoute: RouteDefinition = {
   path: "*",
@@ -87,6 +91,14 @@ export const routes: RouteDefinition[] = [
     title: "Hr SignIn",
     pathType: 6,
   },
+  {
+    path: Paths.hrDashboard,
+    component: HrDashboard,
+    protected: false,
+    redirect: Paths.hrDashboard,
+    title: "Hr SignIn",
+    pathType: 7,
+  },
 ].concat(notFoundRoute as any); // Ensure that notFound is the last route
 
 export interface RouteDefinition {
@@ -117,6 +129,11 @@ function getRouteRenderWithAuth(route: RouteDefinition, i: number) {
 const Routes: React.FC<Props & RoutesProps> = () => {
   // const dispatch = useDispatch();
 
+  let token:any
+  token=localStorage.getItem('auth-token')
+  console.log(token)
+
+  const props={token}
  
   return (
     <StyledRoutesContainer>
@@ -128,7 +145,6 @@ const Routes: React.FC<Props & RoutesProps> = () => {
             {routes.map((route, i) => {
               const render = getRouteRenderWithAuth(route, i);
               const rest = { render };
-              console.log(route)
               return <Route key={i} path={route.path} exact {...rest} />;
             })}
           </Switch>

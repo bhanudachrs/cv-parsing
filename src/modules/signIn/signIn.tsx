@@ -1,7 +1,6 @@
 import React from 'react'
 import { MainContainer } from '../../shared/styles/styled'
 import history from '../app/components/history'
-
 import { Container, Input, Button } from './style'
 
 const SignIn = () => {
@@ -26,7 +25,6 @@ const SignIn = () => {
             <Button onClick={toHr}>
                 Yes, I'm A Recruiter
                 </Button>
-
             </Container>
     </MainContainer>
     )

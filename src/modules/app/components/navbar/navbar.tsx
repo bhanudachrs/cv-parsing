@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
-// import {
-//   NavContainer,
-//   NavTabs,
-//   NavTab,
-//   NavContainerWrap,
-//   AppLogo,
-//   AppName,
-// } from "./style";
+import {
+  //   NavContainer,
+  //   NavTabs,
+    NavTab,
+  //   NavContainerWrap,
+  AppLogo,
+  AppName,
+} from "./style";
 import {
   AppBar,
   Toolbar,
@@ -22,45 +22,55 @@ import {
   useMediaQuery
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import {
+  NavContainer,
+  // NavTabs,
+  // NavTab,
+  NavContainerWrap,
+  // AppLogo,
+  // AppName,
+} from "./style";
 import { useSelector, useDispatch } from "react-redux";
 import { Paths } from "../routes/types";
 import history from "../history";
 import { Redirect } from "react-router-dom";
-import DrawerNav from "./DrawerNav";
-// import imag from "../../../../assets/icons/mainLogo.png"
+import DrawerNav from "./DrawerNav"
+import imag from "../../../../assets/icons/mainLogo.png"
 
-const useStyles = makeStyles((theme)=>({
+const useStyles = makeStyles((theme) => ({
   navlinks: {
     marginLeft: theme.spacing(5),
     display: "flex",
   },
   link: {
-    textDecoration: "none",
+    textDecoration:"none",
     color: "white",
-    fontSize: "20px",
-    marginLeft: theme.spacing(20),
-    "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
-    },
-  },
-  icon:{
-      color: "white"
+    fontSize: "24px",
+    fontWeight:"bolder",
+    padding:"10px 20px",
+    marginTop:"12px",
+    border:"2px solid neon",
+    "&:hover":{
+    background: "#1b2732",
+    borderRadius: "8px",
+    color:"white"
   }
+  },
 }));
 
 const Navbar = () => {
+  // console.log(props)
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [activeLink, setActiveLink] = React.useState(history.location.pathname);
-
-  //console.log("Navbar",walletBalance, walletConnectCheck, userAddress)
+  const [token, setToken] = React.useState<any>();
 
   React.useEffect(() => {
-    
+    setToken(localStorage.getItem('auth-token'))
+    console.log(token)
     const path = history.location.pathname;
-    console.log("history.location.pathname" , path)
+    console.log("history.location.pathname", path)
     if (path === "/homePage") {
       setActiveLink("homePage");
     } else if (path === "/signIn") {
@@ -74,6 +84,8 @@ const Navbar = () => {
 
   React.useEffect(() => {
     //console.log("history")
+    //  setToken(localStorage.getItem('auth-token'))
+    //  console.log(token)
     return history.listen((location) => {
       // //console.log(`You changed the page to: ${location.pathname}`);
       const path = history.location.pathname;
@@ -92,7 +104,8 @@ const Navbar = () => {
     setActiveLink("dashboard");
   };
 
-  const tosignIn = () => {
+  const toLogout = () => {
+    localStorage.clear()
     history.push(Paths.signIn);
     setActiveLink("signIn");
   };
@@ -115,60 +128,76 @@ const Navbar = () => {
   //   }
   // }, [path])
 
+  
+
   return (
-    <AppBar position="static">
-    <CssBaseline />
-    <Toolbar>
-      <Typography variant="h4" >
-      </Typography>
-      {isMobile ? (
-        <DrawerNav />
-      ) : (
-        <div className={classes.navlinks}>
-          <Link to="/" className={classes.link}>
-            Home
-          </Link>
-          <Link to="/about" className={classes.link}>
-            About
-          </Link>
-          <Link to="/contact" className={classes.link}>
-            Contact
-          </Link>
-          <Link to="/faq" className={classes.link}>
-            FAQ
-          </Link>
+    <NavContainerWrap > 
+    <AppBar position="relative" style={{ height: "80px", backgroundColor: "#00D7E7" }}>
+      <CssBaseline />
+      <Toolbar >
+          <div style={{display:"flex",width:"100%",justifyContent:"space-between"}}>
+            <div style={{display:"flex"}}>
+        <AppLogo src={imag} />
+        <Typography variant="h4" >
+          <AppName
+            onClick={toHomePage}
+          >
+            RecHelper
+          </AppName>
+        </Typography>
         </div>
-      )}
-    </Toolbar>
-  </AppBar>
-  //  <NavContainerWrap> 
-  //     <NavContainer>
-  //       <div style={{ display: "flex", alignItems: "center" }}
-  //       onClick={toHomePage}
-  //       >
-  //           <AppLogo
-  //             src={require("../../../../assets/icons/mainLogo.png").default}
-  //           />
-  //         <AppName
-  //             onClick={toHomePage}
-  //           >
-  //             RecHelper
-  //           </AppName>
-  //       </div>
-  //       <NavTabs
-  //       >
-  //           <NavTab
-  //             isActiveTab={activeLink === "signIn" ? true : false}
-  //             onClick={tosignIn}
-  //           >
-  //             <a>SignIn</a>
-  //           </NavTab>
-        
-  //       </NavTabs>
-        
-  //     </NavContainer> 
-   
-  //    </NavContainerWrap> 
+        {isMobile ? (
+          <DrawerNav />
+          ) : (
+            <div className={classes.navlinks} >
+              {
+                token ?  <Link to="/" onClick={toLogout} className={classes.link}>
+                Logout
+              </Link>:<Link to="/signin" className={classes.link}>
+              SignIn
+            </Link>
+              }
+            
+            {/* <NavTab
+            className={classes.link}
+              isActiveTab={activeLink === "signIn" ? true : false}
+              onClick={tosignIn}
+              >
+            <a>  SignIn</a>
+            </NavTab> */}
+          </div>
+        )}
+        </div>
+      </Toolbar>
+    </AppBar>
+    </NavContainerWrap> 
+    //     <NavContainer>
+    //       <div style={{ display: "flex", alignItems: "center" }}
+    //       onClick={toHomePage}
+    //       >
+    //           <AppLogo
+    //             src={require("../../../../assets/icons/mainLogo.png").default}
+    //           />
+    //         <AppName
+    //             onClick={toHomePage}
+    //           >
+    //             RecHelper
+    //           </AppName>
+    //       </div>
+    //       <NavTabs
+    //       >
+    //           <NavTab
+    //             isActiveTab={activeLink === "signIn" ? true : false}
+    //             onClick={tosignIn}
+    //           >
+    //             <a>SignIn</a>
+    //           </NavTab>
+
+    //       </NavTabs>
+
+    //     </NavContainer> 
+
+    //    </NavContainerWrap> 
   );
 };
 

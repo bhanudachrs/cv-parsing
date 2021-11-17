@@ -4,16 +4,16 @@ import { colors, screenSizes } from "../../../../shared/styles/theme";
 export const NavContainerWrap = styled.div`
   display: block;
   background: ${colors.neon};
-  height: auto;
+  height: 80px;
   position: fixed;
   width: 100%;
-  z-index: 100000;
-  max-width: 1800px;
-  margin: auto;
+  z-index: 1000;
+  // max-width: 1800px;
+  // margin: auto;
   -webkit-backface-visibility: hidden;
   @media (min-width: ${screenSizes.mediaS}px) {
     -webkit-backface-visibility: hidden;
-    height: 80px;
+    // height: 80px;
   }
 `;
 
@@ -25,55 +25,47 @@ export const NavContainer = styled.div`
 
 export const AppLogo = styled.img`
   cursor: pointer;
-  height: 34px;
-  margin-top: 10px;
+  height: 39px;
+  width:auto;
+  margin-top: 22px;
+  // border:2px solid red;s
   @media (min-width: ${screenSizes.mediaS}px) {
-    margin-top: 5px;
+    margin-top: 8px;
     height: 54px;
-    margin-bottom: 0px;
-    width: 130px;
-    margin-left: 40px;
+    width: auto;
+    margin-left: 20px;
   }
   @media (min-width: ${screenSizes.mediaL}px) {
-    margin-left: 40px;
+    
+    margin-left: 30px;
   }
   @media (min-width: ${screenSizes.mediaXL}px) {
-    margin-left: 80px;
+    margin-left: 40px;
   }
   @media (min-width: ${screenSizes.mediaXXL}px) {
-    margin-left: 100px;
+    margin-left: 40px;
   }
 `;
 
 export const AppName = styled.div`
 cursor: pointer;
-height: 34px;
-margin-top: 4px;
-font-size:40px;
-padding:0px 10px;
+margin:18px 0px 0px 10px;
+font-size:34px;
+padding:5px 10px;
+font-weight:bold;
 font-family : Monospace ;
+color:${colors.black};
 @media (min-width: ${screenSizes.mediaS}px) {
-  // margin-top: 5px;
-  height: 54px;
-  margin-bottom: 0px;
-  // width: 130px;
-  margin-left: 40px;
+  margin:10px 0px 0px 15px;
 }
+
 
 &:hover {
   color:${colors.white};
-  background: #1b2732;
+  // background: #1b2732;
   border-radius: 4px;
 }
 `
-
-export const ToggleMenu = styled.img`
-  display: block;
-  margin: 20px;
-  @media (min-width: ${screenSizes.mediaS}px) {
-    display: none;
-  }
-`;
 
 export const NavTabs = styled.ul`
   list-style: none;
@@ -82,6 +74,9 @@ export const NavTabs = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  @media (max-width: ${screenSizes.mediaS}px) {
+    display : none;
+  }
 `;
 export const NavTab = styled.li<any>`
   cursor: pointer;

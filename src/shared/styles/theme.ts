@@ -22,7 +22,7 @@ export const colors: Colors = {
 	neon: '#00D7E7',
 	green: '#01D14E',
 	base: '#313131',
-	black: '#333333',
+	black: '#2F2F2F',
 	yellow: '#FFF300',
 	buttonColor: '#F3B723',
 	cardBackground: '#2F445A',
