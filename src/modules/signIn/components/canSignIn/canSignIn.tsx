@@ -52,29 +52,36 @@ const CanSignIn = () => {
         password: "",
         cPassword: ""
     })
-    // useEffect(()=>{
-    //     ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
-    //         console.log(value)
-    //         if (value !== UserData.password) {
-    //             return false;
-    //         }
-    //         return true;
-    //     });
-    //     return()=>{
-    //             ValidatorForm.removeValidationRule('isPasswordMatch');
-    //                 }
-    // },[])
     const handleSubmit = () => {
         if (mode == 'Register') {
             console.log(UserData)
+
+            if(UserData.password.length < 8){
+                setUserDataErr(prevState => {
+                    return { ...prevState, password:"password must contain 8 character"}
+                });
+                return
+            }else if(UserData.password.length >= 8){
+                setUserDataErr(prevState => {
+                    return { ...prevState, password:""}
+                });
+                return
+            }
+            if(UserData.password != UserData.cPassword){
+                setUserDataErr(prevState => {
+                    return { ...prevState, cPassword:"password mismatched"}
+                });
+                return
+            }
+
             if(UserData.password == UserData.cPassword){
-                localStorage.setItem('auth-token','qwertyuioplkjhgfdszxcvbnmmbvc')
+                localStorage.setItem('auth-token','true')
                 history.push("/dashboard")
             }
         }
         if (mode == 'Login') {
             console.log(UserData)
-            localStorage.setItem('auth-token','qwertyuioplkjhgfdszxcvbnmmbvc')
+            localStorage.setItem('auth-token','true')
             history.push("/dashboard")
         }
     }
@@ -130,8 +137,8 @@ const CanSignIn = () => {
                                             name="email"
                                             value={UserData.email}
                                             required
-                                            validators={['required']}
-                                            errorMessages={['this field is required']}
+                                            validators={['isEmail']}
+                                            errorMessages={['enter a valid Email']}
                                             variant="standard"
                                             fullWidth
                                         />
@@ -139,18 +146,15 @@ const CanSignIn = () => {
                                     <Grid item xs={12} className={classes.InputMr}>
                                         <Label >Password</Label>
                                         <TextValidator
-                                   
                                             onChange={handleChange}
                                             name="password"
                                             type="password"
                                             required
-                                            validators={['minNumber:0', 'maxNumber:255', 'matchRegexp:^[0-9]$']}
-                                            // errorMessages={['password is required']}
                                             value={UserData.password}
                                             variant="standard"
                                             fullWidth
                                         />
-                                        {/* <ErrText>{UserData.password.length < 8 ? "password must contain 8 character":""}</ErrText> */}
+                                        <ErrText>{UserDataErr.password}</ErrText>
                                     </Grid>
                                     <Grid item xs={12} className={classes.InputMr}>
                                         <Label >Confirm Password</Label>
@@ -164,8 +168,7 @@ const CanSignIn = () => {
                                             validators={['required']}
                                             errorMessages={['this field is required']}
                                             value={UserData.cPassword}
-                                        />
-                                       {UserData.password != UserData.cPassword ?  <ErrText>Password mismatched</ErrText>:""}
+                                        /> <ErrText>{UserDataErr.cPassword}</ErrText>
                                     </Grid>
                                     <Grid item xs={12} className={classes.InputMr}>
                                         <Button type="submit" 

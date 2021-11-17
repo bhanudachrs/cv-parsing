@@ -1,19 +1,58 @@
 import React, { useEffect } from "react";
+import MenuIcon from "@material-ui/icons/Menu";
+// import {
+//   NavContainer,
+//   NavTabs,
+//   NavTab,
+//   NavContainerWrap,
+//   AppLogo,
+//   AppName,
+// } from "./style";
 import {
-  NavContainer,
-  NavTabs,
-  NavTab,
-  NavContainerWrap,
-  AppLogo,
-  AppName,
-} from "./style";
+  AppBar,
+  Toolbar,
+  CssBaseline,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  useTheme,
+  useMediaQuery
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Paths } from "../routes/types";
 import history from "../history";
 import { Redirect } from "react-router-dom";
+import DrawerNav from "./DrawerNav";
 // import imag from "../../../../assets/icons/mainLogo.png"
-const Navbar = () => {
 
+const useStyles = makeStyles((theme)=>({
+  navlinks: {
+    marginLeft: theme.spacing(5),
+    display: "flex",
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
+    fontSize: "20px",
+    marginLeft: theme.spacing(20),
+    "&:hover": {
+      color: "yellow",
+      borderBottom: "1px solid white",
+    },
+  },
+  icon:{
+      color: "white"
+  }
+}));
+
+const Navbar = () => {
+  const classes = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [activeLink, setActiveLink] = React.useState(history.location.pathname);
 
   //console.log("Navbar",walletBalance, walletConnectCheck, userAddress)
@@ -77,38 +116,59 @@ const Navbar = () => {
   // }, [path])
 
   return (
-    <NavContainerWrap>
-      <NavContainer>
-        <div style={{ display: "flex", alignItems: "center" }}
-        onClick={toHomePage}
-        >
-            <AppLogo
-              src={require("../../../../assets/icons/mainLogo.png").default}
-            />
-          <AppName
-              onClick={toHomePage}
-            >
-              RecHelper
-            </AppName>
+    <AppBar position="static">
+    <CssBaseline />
+    <Toolbar>
+      <Typography variant="h4" >
+      </Typography>
+      {isMobile ? (
+        <DrawerNav />
+      ) : (
+        <div className={classes.navlinks}>
+          <Link to="/" className={classes.link}>
+            Home
+          </Link>
+          <Link to="/about" className={classes.link}>
+            About
+          </Link>
+          <Link to="/contact" className={classes.link}>
+            Contact
+          </Link>
+          <Link to="/faq" className={classes.link}>
+            FAQ
+          </Link>
         </div>
-        <NavTabs
-        >
-            <NavTab
-              isActiveTab={activeLink === "signIn" ? true : false}
-              onClick={tosignIn}
-            >
-              <a>SignIn</a>
-            </NavTab>
-            {/* <NavTab
-              isActiveTab={activeLink === "signIn" ? true : false}
-              onClick={tosignIn}
-            >
-              <a>Logout</a>
-            </NavTab> */}
-        </NavTabs>
+      )}
+    </Toolbar>
+  </AppBar>
+  //  <NavContainerWrap> 
+  //     <NavContainer>
+  //       <div style={{ display: "flex", alignItems: "center" }}
+  //       onClick={toHomePage}
+  //       >
+  //           <AppLogo
+  //             src={require("../../../../assets/icons/mainLogo.png").default}
+  //           />
+  //         <AppName
+  //             onClick={toHomePage}
+  //           >
+  //             RecHelper
+  //           </AppName>
+  //       </div>
+  //       <NavTabs
+  //       >
+  //           <NavTab
+  //             isActiveTab={activeLink === "signIn" ? true : false}
+  //             onClick={tosignIn}
+  //           >
+  //             <a>SignIn</a>
+  //           </NavTab>
         
-      </NavContainer>
-    </NavContainerWrap>
+  //       </NavTabs>
+        
+  //     </NavContainer> 
+   
+  //    </NavContainerWrap> 
   );
 };
 
