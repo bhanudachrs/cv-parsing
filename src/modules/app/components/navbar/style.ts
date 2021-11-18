@@ -52,7 +52,7 @@ font-size:40px;
 padding:0px 10px;
 font-family : Monospace ;
 @media (min-width: ${screenSizes.mediaS}px) {
-  margin:5px 0px 0px 15px;
+  margin:15px 0px 0px 15px;
   height: 54px;
 }
 
