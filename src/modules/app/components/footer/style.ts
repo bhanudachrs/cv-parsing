@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors, screenSizes } from "../../../../shared/styles/theme";
 
 export const FooterContainer = styled.div`
-background : #1b2732;
+background : ${colors.gray};
 width:100%;
 font-family: Sans-serif ;
  h3 {
@@ -10,7 +10,7 @@ font-family: Sans-serif ;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: center;
-  color: ${colors.yellow};
+  color: ${colors.black};
  }
   
 `;
@@ -33,7 +33,7 @@ p {
   // line-height: 23px;
   letter-spacing: 0.05em;
   text-align: center;
-  color: ${colors.white};
+  color: ${colors.black};
 }
 @media (min-width: ${screenSizes.mediaS}px) {
   padding: 20px 0px;

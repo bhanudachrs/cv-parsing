@@ -26,8 +26,8 @@ export const colors: Colors = {
 	yellow: '#FFF300',
 	buttonColor: '#F3B723',
 	cardBackground: '#2F445A',
-	gray: '#979797',
-	lightGray: '#8499AE',
+	gray: '#F5F5F5',
+	lightGray: '#696969',
 	InputBackground: '#1B2732',
 };
 

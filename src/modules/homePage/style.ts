@@ -20,7 +20,7 @@ top: 100px;
 left:20px;  
 font-family: sans-serif;
 h1 {
-  color: ${colors.neon};
+  color: ${colors.black};
   font-size:40px;
 }
 h3 {

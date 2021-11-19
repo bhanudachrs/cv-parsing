@@ -3,7 +3,7 @@ import { colors, screenSizes } from "../../../../shared/styles/theme";
 
 export const NavContainerWrap = styled.div`
   display: block;
-  background: ${colors.neon};
+  background: ${colors.black};
   height: 80px;
   position: fixed;
   width: 100%;
@@ -21,6 +21,20 @@ export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0px 20px;
+
+  .item {
+    color:yellow;
+    // color:${colors.white};
+    // background:${colors.black}
+    // cursor: pointer;
+    // font-family: sans-serif;
+    // font-style: normal;
+    // font-weight: 600;
+    // font-size: 15px;
+    // line-height: 15px;
+    // letter-spacing: 0.05em;
+    // border:none;
+    }
 `;
 
 export const AppLogo = styled.img`
@@ -51,14 +65,14 @@ margin:18px 0px 0px 10px;
 font-size:40px;
 padding:0px 10px;
 font-family : Monospace ;
+color:${colors.white};
 @media (min-width: ${screenSizes.mediaS}px) {
-  margin:15px 0px 0px 15px;
+  margin:13px 0px 0px 15px;
   height: 54px;
 }
 
 &:hover {
-  color:${colors.white};
-  background: #1b2732;
+  // background: ${colors.lightGray};
   border-radius: 4px;
 }
 `
@@ -74,28 +88,24 @@ export const NavTabs = styled.ul`
     display : none;
   }
 `;
-export const NavTab = styled.li<any>`
+export const NavTab = styled.div<any>`
   cursor: pointer;
   position: relative;
-  
-  // display: flex;
+  padding: 28px 10px;
+  letter-spacing: 0.05em;
   a {
-    padding: 15px 20px;
+   
     font-family: sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 15px;
-    letter-spacing: 0.05em;
     color: ${colors.white};
     text-decoration: none;
     display: inline-block;
-    font-size: 25px;
+    font-size: 18px;
 
     ${(props) =>
       props.isActiveTab
         ? `
-       background:#1B2732;
+        border-bottom: 2px solid ${colors.white};
        border-radius: 4px;
     `
         : `
@@ -104,7 +114,7 @@ export const NavTab = styled.li<any>`
       `}
   }
   &:hover {
-    background: #1b2732;
+    background: ${colors.lightGray};
     border-radius: 4px;
 
     a {
@@ -114,4 +124,21 @@ export const NavTab = styled.li<any>`
   }
 `;
 
+
+export const Item = styled.div`
+
+.item {
+  color:yellow;
+// color:${colors.white};
+// background:${colors.black}
+// cursor: pointer;
+// font-family: sans-serif;
+// font-style: normal;
+// font-weight: 600;
+// font-size: 15px;
+// line-height: 15px;
+// letter-spacing: 0.05em;
+// border:none;
+}
+`
 

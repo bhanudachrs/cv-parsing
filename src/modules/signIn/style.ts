@@ -29,12 +29,12 @@ width : 100%;
 border-radius :4px;
 padding : 10px 20px;
 font-size:16px;
-border : 1px solid ${colors.gray}
+border : 1px solid ${colors.lightGray}
 `
 
 export const Button = styled.button`
 margin : 10px 0px;
-background : ${colors.neon};
+background : ${colors.lightGray};
 padding : 10px 20px;
 border-radius :10px;
 border : none;
@@ -44,9 +44,9 @@ text-transform: uppercase;
 font-family : Monospace  ;
 
 &:hover {
-    color:${colors.black};
-    background: ${colors.yellow};
-    transform: scale(1.1);
+    color:${colors.white};
+    // background: ${colors.lightGray};
+    // transform: scale(1.1);
 }
 
 @media (min-width: ${screenSizes.mediaS}px) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavContainer,
   NavTabs,
@@ -6,20 +6,30 @@ import {
   NavContainerWrap,
   AppLogo,
   AppName,
+  Item,
 } from "./style";
 import { useSelector, useDispatch } from "react-redux";
 import { Paths } from "../routes/types";
 import history from "../history";
 import { Redirect } from "react-router-dom";
+//@ts-ignore
+// import injectTapEventPlugin from "react-tap-event-plugin";
+//@ts-ignore
+import { DropDownMenu } from 'material-ui';
+//@ts-ignore
+import MenuItem from 'material-ui/MenuItem';
+//@ts-ignore
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 // import imag from "../../../../assets/icons/mainLogo.png"
 const Navbar = () => {
 
   const [activeLink, setActiveLink] = React.useState(history.location.pathname);
+  const [selection, setSelection] = useState(1)
 
   //console.log("Navbar",walletBalance, walletConnectCheck, userAddress)
 
   React.useEffect(() => {
-    
+    // injectTapEventPlugin()
     const path = history.location.pathname;
     console.log("history.location.pathname" , path)
     if (path === "/homePage") {
@@ -75,38 +85,80 @@ const Navbar = () => {
   //   }
   //   }
   // }, [path])
+  const handleSelectionChange = (val:any)  => {
+    console.log("val", val)
+    setSelection(val)
+  }
+  //@ts-ignore
+  const ItemCSS = {
+    outline: "none",
+    color:"white",
+background:"black",
+cursor: "pointer",
+fontFamily: "sans-serif",
+fontStyle: "normal",
+fontWeight: "600",
+fontSize: "15px",
+lineHeight: "15px",
+letterSpacing: "0.05em",
 
+  }
+
+  const MenuCSS = {
+ background : "transparent",
+ border:"none",
+ outline:"none"
+  }
   return (
     <NavContainerWrap>
+       <NavContainer>
       <NavContainer>
-        {/* <div style={{ display: "flex", alignItems: "center" }}
-        onClick={toHomePage}
-        > */}
-            {/* <AppLogo
-              src={require("../../../../assets/icons/mainLogo.png").default}
-            /> */}
           <AppName
               onClick={toHomePage}
             >
               RecHelper
             </AppName>
-        {/* </div> */}
-        <NavTabs
-        >
-          {/* <NavTab
-              isActiveTab={activeLink === "signIn" ? true : false}
-              onClick={tosignIn}
+            {/* <MuiThemeProvider>
+          <DropDownMenu 
+          value={selection} 
+          onChange ={handleSelectionChange}   
+          style={{border : "none"}}
+         >
+          <MenuItem value={1} primaryText="Professionals" style={ItemCSS} />
+          <MenuItem value={2} primaryText="Home" style={ItemCSS}   />  
+          <MenuItem value={3} primaryText="Locations" style={ItemCSS}  />  
+          <MenuItem value={4} primaryText="Professions" style={ItemCSS}  />
+
+        </DropDownMenu>
+        </MuiThemeProvider> */}
+
+        <NavTab
             >
-          <a>career guuidence</a>
-          </NavTab> */}
-            <NavTab
+              <a>Professionals </a>
+            </NavTab>
+
+        <NavTab
+            >
+              <a>Students and Graduates</a>
+            </NavTab>
+
+        <NavTab
+            >
+              <a>Life at RecHelper</a>
+            </NavTab>
+
+        </NavContainer>
+        <NavContainer>
+        {/* <NavTabs > */}
+          <NavTab
               isActiveTab={activeLink === "signIn" ? true : false}
               onClick={tosignIn}
             >
               <a>SignIn</a>
             </NavTab>
-        </NavTabs>
+        {/* </NavTabs> */}
         
+      </NavContainer>
       </NavContainer>
     </NavContainerWrap>
   );

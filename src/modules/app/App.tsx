@@ -8,7 +8,6 @@ const App = (props: any) => {
 
   return (
     <>
-
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Routes />
