@@ -21,7 +21,7 @@ h3 {
     padding: 5px 10px;
     font-size:15px;
     &:hover {
-        background:  ${colors.lightGray};
+        background:  ${colors.gray};
         border-radius: 4px;    
         color : ${colors.white};
     }
@@ -40,7 +40,7 @@ display : flex ;
 flex-direction:column;
 justify-content : flex-start;
 margin:30px 0px;
-// color:${colors.gray};
+// color:${colors.whiteSmoke};
 
 h1 {
     font-size: 20px;

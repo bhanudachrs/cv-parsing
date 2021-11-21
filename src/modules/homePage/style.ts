@@ -22,14 +22,17 @@ font-family: sans-serif;
 h1 {
   color: ${colors.black};
   font-size:40px;
+  font-weight: 600;
 }
 h3 {
   color:${colors.white};
   font-size:18px;
+  font-weight: 200;
 }
 h6 {
   color:${colors.white};
   font-size:14px;
+  font-weight: 100;
 }
 @media (min-width: ${screenSizes.mediaS}px) {
   left:200px; 
@@ -50,10 +53,12 @@ padding : 20px 90px;
 
 h1 {
   font-size : 30px;
+  font-weight: 400;
 }
 
 h3 {
   font-size : 18px;
+  font-weight: 300;
 }
 p {
   line-height: 23px;
@@ -64,10 +69,12 @@ p {
 
 h1 {
   font-size : 40px;
+  font-weight: 400;
 }
 
 h3 {
   font-size : 18px;
+  font-weight: 300;
 }
 }
 `
@@ -117,15 +124,13 @@ img {
     transform: scale(1.0);
 }
 }
-// span  {
-//   vertical-align:middle;
-// font-size : 25px;
-// }
+
 b {
   vertical-align:middle;
-  //  font-size : 25px;
   font-size : 20px;
+  font-weight: 500;
   padding:10px 0px 0px 20px;
+  
 }
 
 @media (min-width: ${screenSizes.mediaS}px) {

@@ -3,17 +3,19 @@ import { MainContainer } from '../../../../shared/styles/styled'
 import history from '../../../app/components/history'
 import { Grid, TextField, Card, Typography, Container } from "@mui/material"
 import { makeStyles } from '@material-ui/core/styles';
+//@ts-ignore
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { Button, Label, CardContent,ErrText } from '../../style'
+import { colors } from '../../../../shared/styles/theme';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
-    InputMr:{
+    InputMr:{    
         margin:theme.spacing(2),
-        padding:theme.spacing(3) 
+        padding:theme.spacing(3) ,
     },
     paper: {
       padding: theme.spacing(2),
@@ -104,8 +106,8 @@ const CanSignIn = () => {
                 >
                     <Card className={classes.card}>
                         <CardContent>
-                            <Typography fontWeight="bolder" margin="60px 10px" textAlign="center" variant="h4" color={"#00D7E7"}>
-                                Hello Candidate .. !!
+                            <Typography fontWeight="bolder" margin="60px 10px" textAlign="center" variant="h4" color={colors.gray}>
+                                Hello Candidate 
                             </Typography>
                             {mode == 'Register' ?
                                 <ValidatorForm

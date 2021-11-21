@@ -14,7 +14,7 @@ const SignIn = () => {
     return(
     <MainContainer>
         <Container>
-            <h1>Welcome to RecHelper .. !!</h1>
+            <h1>Welcome to RecHelper</h1>
 
             <p> *I'm looking to create my profile and  looking for a potential job </p>
             <Button onClick={toCandidate}>

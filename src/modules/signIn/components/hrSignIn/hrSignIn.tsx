@@ -4,8 +4,10 @@ import { Label, CardContent } from '../../style'
 import history from '../../../app/components/history'
 import { Grid, Card, Typography,Container} from "@mui/material"
 import { makeStyles } from '@material-ui/core/styles';
+//@ts-ignore
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { Button, ErrText} from '../../style'
+import { colors } from '../../../../shared/styles/theme'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -106,8 +108,8 @@ return(
         >
             <Card className={classes.card}>
                 <CardContent>
-                    <Typography fontWeight="bolder" margin="60px 10px" textAlign="center" variant="h4" color={"#00D7E7"}>
-                        Hello Recruiter.. !!
+                    <Typography fontWeight="bolder" margin="60px 10px" textAlign="center" variant="h4" color={colors.gray}>
+                        Hello Recruiter 
                     </Typography>
                     {mode == 'Register' ?
                         <ValidatorForm

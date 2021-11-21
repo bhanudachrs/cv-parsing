@@ -64,19 +64,18 @@ export const AppLogo = styled.img`
 export const AppName = styled.div`
 cursor: pointer;
 margin:18px 0px 0px 10px;
-font-size:34px;
+font-size:28px;
 padding:5px 10px;
 font-weight:bold;
 font-family : Monospace ;
 color:${colors.white};
 @media (min-width: ${screenSizes.mediaS}px) {
-  margin:13px 0px 0px 15px;
-  height: 54px;
+  margin:18px 0px 0px 15px;
+  // height: 54px;
 }
 
 
 &:hover {
-  // background: ${colors.lightGray};
   border-radius: 4px;
 }
 `
@@ -104,7 +103,7 @@ export const NavTab = styled.div<any>`
     color: ${colors.white};
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
 
     ${(props) =>
       props.isActiveTab
@@ -118,7 +117,7 @@ export const NavTab = styled.div<any>`
       `}
   }
   &:hover {
-    background: ${colors.lightGray};
+    background: ${colors.gray};
     border-radius: 4px;
 
     a {

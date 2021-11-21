@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors, screenSizes } from "../../../../shared/styles/theme";
 
 export const FooterContainer = styled.div`
-background : ${colors.gray};
+background : ${colors.whiteSmoke};
 width:100%;
 font-family: Sans-serif ;
  h3 {

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.5.0",
+    "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.3.0",
     "@ethersproject/providers": "^5.1.2",
     "@material-ui/core": "^4.11.2",
@@ -32,8 +32,8 @@
     "chart.js": "^2.9.3",
     "eth-permit": "^0.1.9",
     "history": "^4.10.1",
-    "material-ui": "^0.20.2",
     "install": "^0.13.0",
+    "material-ui": "^0.20.2",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "npm": "^8.1.3",

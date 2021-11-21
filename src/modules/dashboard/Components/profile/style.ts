@@ -24,7 +24,7 @@ export const Button = styled.button`
 
  &:hover { 
     // transform: scale(1.05);
-    background:${colors.lightGray};
+    background:${colors.gray};
     color:${colors.white}
 }
 @media (min-width: ${screenSizes.mediaS}px) {
@@ -39,7 +39,7 @@ export const ButtonContainer = styled.div`
  `
 
  export const MainSection = styled.div`
-  background : ${colors.gray};
+  background : ${colors.whiteSmoke};
   border-radius: 4px;
   padding : 20px;
   h1 {

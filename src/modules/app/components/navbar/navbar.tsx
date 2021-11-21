@@ -154,12 +154,11 @@ letterSpacing: "0.05em",
   }
   return (
     <NavContainerWrap>
-      <AppBar position="relative" style={{ height: "80px", backgroundColor: "#00D7E7" }}>
+      {/* <AppBar position="relative" >
       <CssBaseline />
       <Toolbar >
           <div style={{display:"flex",width:"100%",justifyContent:"space-between"}}>
             <div style={{display:"flex"}}>
-        <AppLogo src={imag} />
         <Typography variant="h4" >
           <AppName
             onClick={toHomePage}
@@ -168,7 +167,7 @@ letterSpacing: "0.05em",
           </AppName>
         </Typography>
         </div>
-        {isMobile ? (
+        {/* {isMobile ? (
           <DrawerNav />
           ) : (
             <div className={classes.navlinks} >
@@ -179,26 +178,25 @@ letterSpacing: "0.05em",
               SignIn
             </Link>
               }
-            
-            {/* <NavTab
-            className={classes.link}
-              isActiveTab={activeLink === "signIn" ? true : false}
-              onClick={tosignIn}
-              >
-            <a>  SignIn</a>
-            </NavTab> */}
+          
           </div>
-        )}
-        </div>
+        )} */}
+        {/* </div>
       </Toolbar>
-    </AppBar>
+    </AppBar> */} 
        <NavContainer>
-      <NavContainer>
-          <AppName
+       <NavContainer>
+       <AppName
               onClick={toHomePage}
             >
               RecHelper
             </AppName>
+            </NavContainer>
+            {isMobile ? (
+          <DrawerNav  />
+          ) :
+          <>
+      <NavContainer>
 
         <NavTab
             >
@@ -227,6 +225,8 @@ letterSpacing: "0.05em",
         {/* </NavTabs> */}
         
       </NavContainer>
+      </>
+}
       </NavContainer>
     </NavContainerWrap>
   );
