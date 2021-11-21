@@ -1,37 +1,77 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,useState } from "react";
+import MenuIcon from "@material-ui/icons/Menu";
 import {
-  NavContainer,
-  NavTabs,
-  NavTab,
-  NavContainerWrap,
+  //   NavContainer,
+  //   NavTabs,
+    NavTab,
+  //   NavContainerWrap,
   AppLogo,
   AppName,
   Item,
+} from "./style";
+import {
+  AppBar,
+  Toolbar,
+  CssBaseline,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  useTheme,
+  useMediaQuery
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
+import {
+  NavContainer,
+  // NavTabs,
+  // NavTab,
+  NavContainerWrap,
+  // AppLogo,
+  // AppName,
 } from "./style";
 import { useSelector, useDispatch } from "react-redux";
 import { Paths } from "../routes/types";
 import history from "../history";
 import { Redirect } from "react-router-dom";
-//@ts-ignore
-// import injectTapEventPlugin from "react-tap-event-plugin";
-//@ts-ignore
-import { DropDownMenu } from 'material-ui';
-//@ts-ignore
-import MenuItem from 'material-ui/MenuItem';
-//@ts-ignore
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-// import imag from "../../../../assets/icons/mainLogo.png"
+import DrawerNav from "./DrawerNav"
+import imag from "../../../../assets/icons/mainLogo.png"
+
+const useStyles = makeStyles((theme) => ({
+  navlinks: {
+    marginLeft: theme.spacing(5),
+    display: "flex",
+  },
+  link: {
+    textDecoration:"none",
+    color: "white",
+    fontSize: "24px",
+    fontWeight:"bolder",
+    padding:"10px 20px",
+    marginTop:"12px",
+    border:"2px solid neon",
+    "&:hover":{
+    background: "#1b2732",
+    borderRadius: "8px",
+    color:"white"
+  }
+  },
+}));
+
 const Navbar = () => {
-
+  // console.log(props)
+  const classes = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [activeLink, setActiveLink] = React.useState(history.location.pathname);
-  const [selection, setSelection] = useState(1)
-
-  //console.log("Navbar",walletBalance, walletConnectCheck, userAddress)
+  const [token, setToken] = React.useState<any>();
 
   React.useEffect(() => {
-    // injectTapEventPlugin()
+    setToken(localStorage.getItem('auth-token'))
+    console.log(token)
     const path = history.location.pathname;
-    console.log("history.location.pathname" , path)
+    console.log("history.location.pathname", path)
     if (path === "/homePage") {
       setActiveLink("homePage");
     } else if (path === "/signIn") {
@@ -45,6 +85,8 @@ const Navbar = () => {
 
   React.useEffect(() => {
     //console.log("history")
+    //  setToken(localStorage.getItem('auth-token'))
+    //  console.log(token)
     return history.listen((location) => {
       // //console.log(`You changed the page to: ${location.pathname}`);
       const path = history.location.pathname;
@@ -58,12 +100,13 @@ const Navbar = () => {
     setActiveLink("homePage");
   };
 
-  const toDashboard = () => {
-    history.push(Paths.dashboard);
-    setActiveLink("dashboard");
+  const tosignIn = () => {
+    history.push(Paths.signIn);
+    setActiveLink("signIn");
   };
 
-  const tosignIn = () => {
+  const toLogout = () => {
+    localStorage.clear()
     history.push(Paths.signIn);
     setActiveLink("signIn");
   };
@@ -85,10 +128,10 @@ const Navbar = () => {
   //   }
   //   }
   // }, [path])
-  const handleSelectionChange = (val:any)  => {
-    console.log("val", val)
-    setSelection(val)
-  }
+  // const handleSelectionChange = (val:any)  => {
+  //   console.log("val", val)
+  //   setSelection(val)
+  // }
   //@ts-ignore
   const ItemCSS = {
     outline: "none",
@@ -111,6 +154,44 @@ letterSpacing: "0.05em",
   }
   return (
     <NavContainerWrap>
+      <AppBar position="relative" style={{ height: "80px", backgroundColor: "#00D7E7" }}>
+      <CssBaseline />
+      <Toolbar >
+          <div style={{display:"flex",width:"100%",justifyContent:"space-between"}}>
+            <div style={{display:"flex"}}>
+        <AppLogo src={imag} />
+        <Typography variant="h4" >
+          <AppName
+            onClick={toHomePage}
+          >
+            RecHelper
+          </AppName>
+        </Typography>
+        </div>
+        {isMobile ? (
+          <DrawerNav />
+          ) : (
+            <div className={classes.navlinks} >
+              {
+                token ?  <Link to="/" onClick={toLogout} className={classes.link}>
+                Logout
+              </Link>:<Link to="/signin" className={classes.link}>
+              SignIn
+            </Link>
+              }
+            
+            {/* <NavTab
+            className={classes.link}
+              isActiveTab={activeLink === "signIn" ? true : false}
+              onClick={tosignIn}
+              >
+            <a>  SignIn</a>
+            </NavTab> */}
+          </div>
+        )}
+        </div>
+      </Toolbar>
+    </AppBar>
        <NavContainer>
       <NavContainer>
           <AppName
@@ -118,19 +199,6 @@ letterSpacing: "0.05em",
             >
               RecHelper
             </AppName>
-            {/* <MuiThemeProvider>
-          <DropDownMenu 
-          value={selection} 
-          onChange ={handleSelectionChange}   
-          style={{border : "none"}}
-         >
-          <MenuItem value={1} primaryText="Professionals" style={ItemCSS} />
-          <MenuItem value={2} primaryText="Home" style={ItemCSS}   />  
-          <MenuItem value={3} primaryText="Locations" style={ItemCSS}  />  
-          <MenuItem value={4} primaryText="Professions" style={ItemCSS}  />
-
-        </DropDownMenu>
-        </MuiThemeProvider> */}
 
         <NavTab
             >

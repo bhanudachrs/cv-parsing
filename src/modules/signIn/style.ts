@@ -42,7 +42,6 @@ font-size:18px;
 cursor : pointer;
 text-transform: uppercase;
 font-family : Monospace  ;
-
 &:hover {
     color:${colors.white};
     // background: ${colors.lightGray};
@@ -53,4 +52,23 @@ font-family : Monospace  ;
     margin : 10px 30%;
     padding : 10px 50px;
  }  
+
+ `
+ export const CardContent = styled.div`
+ margin : 40px 50px;
 `
+export const ErrText = styled.div`
+color:#d32f2f;
+font-size:12px;
+`
+
+export const Label = styled.label`
+ margin : 50px 0px;
+ color: #00D7E7
+ font-family:Sans-serif;
+ font-size:18px;
+    line-height: 23px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    font-weight:bold
+ `

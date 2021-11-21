@@ -25,7 +25,6 @@ const SignIn = () => {
             <Button onClick={toHr}>
                 Yes, I'm A Recruiter
                 </Button>
-
             </Container>
     </MainContainer>
     )
