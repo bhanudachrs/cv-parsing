@@ -15,6 +15,7 @@ export interface Colors {
 	InputBackground: string;
 }
 
+
 export const colors: Colors = {
   themeBackground: '#1B2732',
 	white: '#ffffff',
