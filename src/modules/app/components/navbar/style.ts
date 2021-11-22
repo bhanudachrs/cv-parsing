@@ -3,17 +3,17 @@ import { colors, screenSizes } from "../../../../shared/styles/theme";
 
 export const NavContainerWrap = styled.div`
   display: block;
-  background: ${colors.neon};
+  background: ${colors.black};
   height: 80px;
   position: fixed;
   width: 100%;
-  z-index: 100000;
+  z-index: 1000;
   // max-width: 1800px;
   // margin: auto;
   -webkit-backface-visibility: hidden;
   @media (min-width: ${screenSizes.mediaS}px) {
     -webkit-backface-visibility: hidden;
-    height: 80px;
+    // height: 80px;
   }
 `;
 
@@ -21,44 +21,61 @@ export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0px 20px;
+
+  .item {
+    color:yellow;
+    // color:${colors.white};
+    // background:${colors.black}
+    // cursor: pointer;
+    // font-family: sans-serif;
+    // font-style: normal;
+    // font-weight: 600;
+    // font-size: 15px;
+    // line-height: 15px;
+    // letter-spacing: 0.05em;
+    // border:none;
+    }
 `;
 
 export const AppLogo = styled.img`
   cursor: pointer;
-  height: 34px;
-  margin-top: 18px;
+  height: 39px;
+  width:auto;
+  margin-top: 22px;
+  // border:2px solid red;s
   @media (min-width: ${screenSizes.mediaS}px) {
-    margin-top: 0px;
+    margin-top: 8px;
     height: 54px;
-    width: 130px;
-    margin-left: 40px;
+    width: auto;
+    margin-left: 20px;
   }
   @media (min-width: ${screenSizes.mediaL}px) {
     
-    margin-left: 40px;
+    margin-left: 30px;
   }
   @media (min-width: ${screenSizes.mediaXL}px) {
-    margin-left: 80px;
+    margin-left: 40px;
   }
   @media (min-width: ${screenSizes.mediaXXL}px) {
-    margin-left: 100px;
+    margin-left: 40px;
   }
 `;
 
 export const AppName = styled.div`
 cursor: pointer;
 margin:18px 0px 0px 10px;
-font-size:40px;
-padding:0px 10px;
+font-size:28px;
+padding:5px 10px;
+font-weight:bold;
 font-family : Monospace ;
+color:${colors.white};
 @media (min-width: ${screenSizes.mediaS}px) {
-  margin:5px 0px 0px 15px;
-  height: 54px;
+  margin:18px 0px 0px 15px;
+  // height: 54px;
 }
 
+
 &:hover {
-  color:${colors.white};
-  background: #1b2732;
   border-radius: 4px;
 }
 `
@@ -74,28 +91,24 @@ export const NavTabs = styled.ul`
     display : none;
   }
 `;
-export const NavTab = styled.li<any>`
+export const NavTab = styled.div<any>`
   cursor: pointer;
   position: relative;
-  
-  // display: flex;
+  padding: 28px 10px;
+  letter-spacing: 0.05em;
   a {
-    padding: 15px 20px;
+   
     font-family: sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 15px;
-    letter-spacing: 0.05em;
     color: ${colors.white};
     text-decoration: none;
     display: inline-block;
-    font-size: 25px;
+    font-size: 15px;
 
     ${(props) =>
       props.isActiveTab
         ? `
-       background:#1B2732;
+        border-bottom: 2px solid ${colors.white};
        border-radius: 4px;
     `
         : `
@@ -104,7 +117,7 @@ export const NavTab = styled.li<any>`
       `}
   }
   &:hover {
-    background: #1b2732;
+    background: ${colors.gray};
     border-radius: 4px;
 
     a {
@@ -114,4 +127,21 @@ export const NavTab = styled.li<any>`
   }
 `;
 
+
+export const Item = styled.div`
+
+.item {
+  color:yellow;
+// color:${colors.white};
+// background:${colors.black}
+// cursor: pointer;
+// font-family: sans-serif;
+// font-style: normal;
+// font-weight: 600;
+// font-size: 15px;
+// line-height: 15px;
+// letter-spacing: 0.05em;
+// border:none;
+}
+`
 

@@ -10,8 +10,8 @@ export interface Colors {
 	neon: string;
 	buttonColor: string;
 	cardBackground: string;
+	whiteSmoke: string;
 	gray: string;
-	lightGray: string;
 	InputBackground: string;
 }
 
@@ -26,8 +26,8 @@ export const colors: Colors = {
 	yellow: '#FFF300',
 	buttonColor: '#F3B723',
 	cardBackground: '#2F445A',
-	gray: '#979797',
-	lightGray: '#8499AE',
+	whiteSmoke: '#F5F5F5',
+	gray: '#696969',
 	InputBackground: '#1B2732',
 };
 
@@ -42,8 +42,8 @@ export interface ThemeStarter {
 	neon: string;
 	buttonColor: string;
 	cardBackground: string;
+	whiteSmoke: string;
 	gray: string;
-	lightGray: string;
 	InputBackground: string;
 }
 
@@ -57,8 +57,8 @@ export const theme: ThemeStarter = {
 	neon: colors.neon,
 	buttonColor: colors.buttonColor,
 	cardBackground: colors.cardBackground,
+	whiteSmoke: colors.whiteSmoke,
 	gray: colors.gray,
-	lightGray: colors.lightGray,
 	InputBackground: colors.InputBackground,
 };
 
