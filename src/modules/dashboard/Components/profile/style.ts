@@ -17,6 +17,7 @@ export const Button = styled.button`
  }
 
  b {
+    font-weight:500;
     padding : 2px 10px;
      font-size : 16px;
      vertical-align:middle;
@@ -45,6 +46,7 @@ export const ButtonContainer = styled.div`
   h1 {
       padding:10px;
       border-bottom : 1px solid black;  
+      font-weight:500;
   }
   @media (min-width: ${screenSizes.mediaS}px) {
     width : 800px; 

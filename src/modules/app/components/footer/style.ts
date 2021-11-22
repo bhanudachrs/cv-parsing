@@ -6,6 +6,7 @@ background : ${colors.whiteSmoke};
 width:100%;
 font-family: Sans-serif ;
  h3 {
+   font-weight:400;
   line-height: 23px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -29,6 +30,8 @@ grid-template-columns: repeat(2, 1fr);
 
 export const GridItem = styled.div`
 p {
+  cursor:pointer;
+  font-weight:300;
   font-size: 14px;
   // line-height: 23px;
   letter-spacing: 0.05em;

@@ -63,15 +63,15 @@ const Navbar = () => {
   // console.log(props)
   const classes = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [activeLink, setActiveLink] = React.useState(history.location.pathname);
   const [token, setToken] = React.useState<any>();
 
   React.useEffect(() => {
     setToken(localStorage.getItem('auth-token'))
-    console.log(token)
+    console.log("token",token)
     const path = history.location.pathname;
-    console.log("history.location.pathname", path)
+    // console.log("history.location.pathname", path)
     if (path === "/homePage") {
       setActiveLink("homePage");
     } else if (path === "/signIn") {
@@ -83,18 +83,24 @@ const Navbar = () => {
     }
   }, []);
 
+  console.log("path", window.location.pathname, history.location.pathname)
+
   React.useEffect(() => {
-    //console.log("history")
-    //  setToken(localStorage.getItem('auth-token'))
-    //  console.log(token)
+
     return history.listen((location) => {
       // //console.log(`You changed the page to: ${location.pathname}`);
       const path = history.location.pathname;
       if (path === "/homePage") {
         setActiveLink("homePage");
       }
+       else if (path === "/signIn") {
+        setActiveLink("signIn");
+      } else if (path === "/dashboard") {
+        setActiveLink("dashboard");
+      }
     });
   }, [history]);
+
   const toHomePage = () => {
     history.push(Paths.homePage);
     setActiveLink("homePage");
@@ -112,26 +118,6 @@ const Navbar = () => {
   };
 
   const path = window.location.pathname
-  // //console.log(activeLink,"path",path.slice(1,path.length))
-
-  // useEffect(() => {
-  //   //console.log("setActiveLink")
-  //   const newPath = path.slice(1,path.length)
-  //   if(activeLink !== newPath) {
-  //     // //console.log("newPath",newPath)
-  //     if(newPath === "add-liquidity") {
-  //       setActiveLink("pool")
-  //     } else if(newPath === "farmDetails") {
-  //      setActiveLink("farming") 
-  //     } else {
-  //     setActiveLink(newPath)
-  //   }
-  //   }
-  // }, [path])
-  // const handleSelectionChange = (val:any)  => {
-  //   console.log("val", val)
-  //   setSelection(val)
-  // }
   //@ts-ignore
   const ItemCSS = {
     outline: "none",

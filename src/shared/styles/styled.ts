@@ -6,7 +6,7 @@ export interface ButtonAreaProps {
   disabled?: boolean;
 }
 export const MainContainer = styled.div`
-  margin : 80px 0px;
+  margin : 70px 0px;
   letter-spacing: 0.02em;
   font-family: Sans-serif;
 `;

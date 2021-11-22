@@ -20,6 +20,7 @@ h3 {
     color : ${colors.black};
     padding: 5px 10px;
     font-size:15px;
+    font-weight:300;
     &:hover {
         background:  ${colors.gray};
         border-radius: 4px;    
@@ -58,6 +59,7 @@ padding : 0px 40px;
 h1 {
     border-bottom:1px solid black;
     padding : 10px 0px;
+    font-weight:500;
 }
 h3 {
     padding : 10px 5px;
