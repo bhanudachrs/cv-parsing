@@ -4,7 +4,7 @@ import { colors, screenSizes } from "../../../../shared/styles/theme";
 export const NavContainerWrap = styled.div`
   display: block;
   background: ${colors.black};
-  height: 80px;
+  height: 70px;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -41,10 +41,10 @@ export const AppLogo = styled.img`
   cursor: pointer;
   height: 39px;
   width:auto;
-  margin-top: 22px;
+  margin-top: 20px;
   // border:2px solid red;s
   @media (min-width: ${screenSizes.mediaS}px) {
-    margin-top: 8px;
+    margin-top: 5px;
     height: 54px;
     width: auto;
     margin-left: 20px;
@@ -63,14 +63,14 @@ export const AppLogo = styled.img`
 
 export const AppName = styled.div`
 cursor: pointer;
-margin:18px 0px 0px 10px;
+margin:14px 0px 0px 10px;
 font-size:28px;
 padding:5px 10px;
 font-weight:bold;
 font-family : Monospace ;
 color:${colors.white};
 @media (min-width: ${screenSizes.mediaS}px) {
-  margin:18px 0px 0px 15px;
+  margin:14px 0px 0px 15px;
   // height: 54px;
 }
 
@@ -94,7 +94,8 @@ export const NavTabs = styled.ul`
 export const NavTab = styled.div<any>`
   cursor: pointer;
   position: relative;
-  padding: 28px 10px;
+  margin:14px 0px;
+  padding: 10px;
   letter-spacing: 0.05em;
   a {
    
