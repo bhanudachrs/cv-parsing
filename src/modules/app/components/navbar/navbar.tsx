@@ -1,12 +1,13 @@
-import React, { useEffect,useState } from "react";
-import MenuIcon from "@material-ui/icons/Menu";
+import React, { useEffect, useState } from "react";
 import {
   //   NavContainer,
   //   NavTabs,
-    NavTab,
+  NavTab,
   //   NavContainerWrap,
   AppLogo,
   AppName,
+  DropdownContent,
+  Dropdown,
   Item,
 } from "./style";
 import {
@@ -20,8 +21,14 @@ import {
   ListItemText,
   makeStyles,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  MenuItem,
+  Menu,
+  Button,
 } from "@material-ui/core";
+// import DropDownMenu from 'material-ui/DropDownMenu';
+// import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+
 import { Link } from "react-router-dom";
 import {
   NavContainer,
@@ -44,20 +51,22 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   link: {
-    textDecoration:"none",
+    textDecoration: "none",
     color: "white",
     fontSize: "24px",
-    fontWeight:"bolder",
-    padding:"10px 20px",
-    marginTop:"12px",
-    border:"2px solid neon",
-    "&:hover":{
-    background: "#1b2732",
-    borderRadius: "8px",
-    color:"white"
-  }
+    fontWeight: "bolder",
+    padding: "10px 20px",
+    marginTop: "12px",
+    border: "2px solid neon",
+    "&:hover": {
+      background: "#1b2732",
+      borderRadius: "8px",
+      color: "white"
+    }
   },
 }));
+
+
 
 const Navbar = () => {
   // console.log(props)
@@ -66,10 +75,13 @@ const Navbar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [activeLink, setActiveLink] = React.useState(history.location.pathname);
   const [token, setToken] = React.useState<any>();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
 
   React.useEffect(() => {
     setToken(localStorage.getItem('auth-token'))
-    console.log("token",token)
+    console.log("token", token)
     const path = history.location.pathname;
     // console.log("history.location.pathname", path)
     if (path === "/homePage") {
@@ -93,7 +105,7 @@ const Navbar = () => {
       if (path === "/homePage") {
         setActiveLink("homePage");
       }
-       else if (path === "/signIn") {
+      else if (path === "/signIn") {
         setActiveLink("signIn");
       } else if (path === "/dashboard") {
         setActiveLink("dashboard");
@@ -117,102 +129,96 @@ const Navbar = () => {
     setActiveLink("signIn");
   };
 
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const path = window.location.pathname
   //@ts-ignore
   const ItemCSS = {
     outline: "none",
-    color:"white",
-background:"black",
-cursor: "pointer",
-fontFamily: "sans-serif",
-fontStyle: "normal",
-fontWeight: "600",
-fontSize: "15px",
-lineHeight: "15px",
-letterSpacing: "0.05em",
+    color: "white",
+    background: "black",
+    cursor: "pointer",
+    fontFamily: "sans-serif",
+    fontStyle: "normal",
+    fontWeight: "600",
+    fontSize: "15px",
+    lineHeight: "15px",
+    letterSpacing: "0.05em",
 
   }
 
   const MenuCSS = {
- background : "transparent",
- border:"none",
- outline:"none"
+    background: "transparent",
+    border: "none",
+    outline: "none"
   }
   return (
     <NavContainerWrap>
-      {/* <AppBar position="relative" >
-      <CssBaseline />
-      <Toolbar >
-          <div style={{display:"flex",width:"100%",justifyContent:"space-between"}}>
-            <div style={{display:"flex"}}>
-        <Typography variant="h4" >
+      <NavContainer>
+        <NavContainer>
           <AppName
             onClick={toHomePage}
           >
             RecHelper
           </AppName>
-        </Typography>
-        </div>
-        {/* {isMobile ? (
-          <DrawerNav />
-          ) : (
-            <div className={classes.navlinks} >
-              {
-                token ?  <Link to="/" onClick={toLogout} className={classes.link}>
-                Logout
-              </Link>:<Link to="/signin" className={classes.link}>
-              SignIn
-            </Link>
-              }
-          
-          </div>
-        )} */}
-        {/* </div>
-      </Toolbar>
-    </AppBar> */} 
-       <NavContainer>
-       <NavContainer>
-       <AppName
-              onClick={toHomePage}
-            >
-              RecHelper
-            </AppName>
-            </NavContainer>
-            {isMobile ? (
-          <DrawerNav  />
-          ) :
-          <>
-      <NavContainer>
-
-        <NavTab
-            >
-              <a>Professionals </a>
-            </NavTab>
-
-        <NavTab
-            >
-              <a>Students and Graduates</a>
-            </NavTab>
-
-        <NavTab
-            >
-              <a>Life at RecHelper</a>
-            </NavTab>
-
         </NavContainer>
-        <NavContainer>
-        {/* <NavTabs > */}
-          <NavTab
-              isActiveTab={activeLink === "signIn" ? true : false}
-              onClick={tosignIn}
-            >
-              <a>SignIn</a>
-            </NavTab>
-        {/* </NavTabs> */}
-        
-      </NavContainer>
-      </>
-}
+        {isMobile ? (
+          <DrawerNav />
+        ) :
+          <>
+            <NavContainer>
+
+              <NavTab
+              >
+                <Dropdown className="dropdown">
+                  <a>Professionals</a>
+                  <DropdownContent className="dropdown-content">
+                    <a href="#">Home</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Professions</a>
+                    <a href="#">US Military & Veterans</a>
+                  </DropdownContent>
+                </Dropdown>
+              </NavTab>
+
+              <NavTab
+              >
+                <a>Students and Graduates</a>
+              </NavTab>
+
+              <NavTab
+              >
+                <Dropdown className="dropdown">
+                  <a>Life at RecHelper</a>
+                  <DropdownContent className="dropdown-content">
+                    <a href="#">Benefits</a>
+                    <a href="#">Culture</a>
+                    <a href="#">Diversity and inculsion</a>
+                    <a href="#">RecHelper Life</a>
+                  </DropdownContent>
+                </Dropdown>
+
+              </NavTab>
+
+            </NavContainer>
+            <NavContainer>
+              {/* <NavTabs > */}
+              <NavTab
+                isActiveTab={activeLink === "signIn" ? true : false}
+                onClick={tosignIn}
+              >
+                <a>SignIn</a>
+              </NavTab>
+              {/* </NavTabs> */}
+
+            </NavContainer>
+          </>
+        }
       </NavContainer>
     </NavContainerWrap>
   );
