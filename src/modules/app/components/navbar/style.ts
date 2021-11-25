@@ -148,34 +148,3 @@ export const Item = styled.div`
 }
 `
 
-
-
-export const DropdownContent = styled.div`{
-  display: none;
-  position: absolute;
-  background: ${colors.gray};
-  min-width: 160px;
-  width:240px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-top:20px;
-  margin-right:20px;
-
-  a {
-    color: white;
-    padding: 20px 18px;
-    text-decoration: none;
-    display: block;
-  }
-}`
-
-export const Dropdown = styled.div`{
-  position: relative;
-  display: inline-block;
-  padding-bottom:12px;
-  &:hover {
-    ${DropdownContent}{
-      display:block;
-    }
-  }
-}`

@@ -14,10 +14,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 // @ts-ignore
 import { Link } from "react-router-dom";
 import { colors } from "../../../../shared/styles/theme";
-import {
-  DropdownContent,
-  Dropdown,
-} from "./style";
 
 const useStyles = makeStyles(() => ({
   link: {

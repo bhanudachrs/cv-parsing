@@ -5,5 +5,6 @@ export enum Paths {
   hrDashboard = "/hrDashboard",
   signIn = "/signIn",
   hrSignIn = "/hrSignIn",
-  canSignIn = "/canSignIn"
+  canSignIn = "/canSignIn",
+  benefits="/benefits"
 }

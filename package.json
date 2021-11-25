@@ -34,6 +34,7 @@
     "history": "^4.10.1",
     "install": "^0.13.0",
     "material-ui": "^0.20.2",
+    "material-ui-popup-state": "^2.0.0",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "npm": "^8.1.3",

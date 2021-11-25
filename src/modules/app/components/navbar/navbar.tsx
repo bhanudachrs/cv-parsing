@@ -1,39 +1,22 @@
 import React, { useEffect, useState } from "react";
 import {
-  //   NavContainer,
-  //   NavTabs,
   NavTab,
-  //   NavContainerWrap,
-  AppLogo,
   AppName,
-  DropdownContent,
-  Dropdown,
-  Item,
 } from "./style";
 import {
-  AppBar,
-  Toolbar,
-  CssBaseline,
-  Typography,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
   makeStyles,
   useTheme,
   useMediaQuery,
   MenuItem,
   Menu,
   Button,
+  Fade
 } from "@material-ui/core";
-// import DropDownMenu from 'material-ui/DropDownMenu';
-// import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import { colors, screenSizes } from "../../../../shared/styles/theme";
 import { Link } from "react-router-dom";
 import {
   NavContainer,
-  // NavTabs,
-  // NavTab,
   NavContainerWrap,
   // AppLogo,
   // AppName,
@@ -64,6 +47,22 @@ const useStyles = makeStyles((theme) => ({
       color: "white"
     }
   },
+  menuList:{
+    color:colors.white,
+    padding:"15px 10px",
+"& a":{
+  textDecoration:"none",
+  color:colors.white,
+}
+  },
+  menu: {
+    "& .MuiPaper-root": {
+      backgroundColor: colors.gray,
+      marginTop:"50px",
+      width:"250px",
+      minWidth:'160px',
+    }
+  }
 }));
 
 
@@ -157,6 +156,8 @@ const Navbar = () => {
     border: "none",
     outline: "none"
   }
+
+  
   return (
     <NavContainerWrap>
       <NavContainer>
@@ -175,15 +176,21 @@ const Navbar = () => {
 
               <NavTab
               >
-                <Dropdown className="dropdown">
-                  <a>Professionals</a>
-                  <DropdownContent className="dropdown-content">
-                    <a href="#">Home</a>
-                    <a href="#">Locations</a>
-                    <a href="#">Professions</a>
-                    <a href="#">US Military & Veterans</a>
-                  </DropdownContent>
-                </Dropdown>
+                <PopupState variant="popover" popupId="demo-popup-menu">
+                  {(popupState: any) => ( 
+                    <React.Fragment>
+                      <a {...bindTrigger(popupState)}>
+                      Professionals
+                      </a>
+                      <Menu className={classes.menu} {...bindMenu(popupState)}>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}><Link to="/benefits">Home</Link></MenuItem>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}>Locations</MenuItem>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}>Professions</MenuItem>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}>US Military & Veterans</MenuItem>
+                      </Menu>
+                    </React.Fragment>
+                  )}
+                </PopupState>
               </NavTab>
 
               <NavTab
@@ -191,20 +198,24 @@ const Navbar = () => {
                 <a>Students and Graduates</a>
               </NavTab>
 
-              <NavTab
-              >
-                <Dropdown className="dropdown">
-                  <a>Life at RecHelper</a>
-                  <DropdownContent className="dropdown-content">
-                    <a href="#">Benefits</a>
-                    <a href="#">Culture</a>
-                    <a href="#">Diversity and inculsion</a>
-                    <a href="#">RecHelper Life</a>
-                  </DropdownContent>
-                </Dropdown>
-
+       
+              <NavTab>
+                <PopupState variant="popover" popupId="demo-popup-menu">
+                  {(popupState: any) => ( 
+                    <React.Fragment>
+                      <a {...bindTrigger(popupState)}>
+                        Life at RecHelpers
+                      </a>
+                      <Menu className={classes.menu} {...bindMenu(popupState)}>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}><Link to="/benefits">Benefits</Link></MenuItem>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}>Culture</MenuItem>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}>Diversity and inculsion</MenuItem>
+                        <MenuItem className={classes.menuList} onClick={popupState.close}>RecHelper Life</MenuItem>
+                      </Menu>
+                    </React.Fragment>
+                  )}
+                </PopupState>
               </NavTab>
-
             </NavContainer>
             <NavContainer>
               {/* <NavTabs > */}

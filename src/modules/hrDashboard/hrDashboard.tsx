@@ -8,32 +8,32 @@ import SavedJobs from './savedJobs';
 
 const HrDashboard = () => {
     const [activeTab, setActiveTab] = useState("/Profile")
-    return(
-    <MainContainer>
-        <DashboardContainer>
-        <HeadLineContainer>
-            <h3 onClick={() => setActiveTab("/Profile")}> Profile
-                </h3>
-                <h3 onClick={() => setActiveTab("/jobAlerts")}> Job alerts
-                </h3>
-                <h3 onClick={() => setActiveTab("/savedjobs")}> Saved jobs
-                </h3>
-                <h3 onClick={() => setActiveTab("/actionCenter")}> Action Center
-                </h3>
-            </HeadLineContainer>
-           
-                        {
-                            activeTab === "/Profile" ? <Profile setActiveTab={setActiveTab} /> 
-                            : activeTab === "/jobAlerts" ? <JobAlerts />  
-                            : activeTab === "/savedjobs" ? <SavedJobs />  
-                            : activeTab === "/actionCenter" ? <ActionCenter />  
-                            : <Profile setActiveTab={setActiveTab} />
-                        }
-                        
-                       
-                </DashboardContainer>
+    return (
+        <MainContainer>
+            <DashboardContainer>
+                <HeadLineContainer>
+                    <h3 onClick={() => setActiveTab("/Profile")}> Profile
+                    </h3>
+                    <h3 onClick={() => setActiveTab("/jobAlerts")}> Job alerts
+                    </h3>
+                    <h3 onClick={() => setActiveTab("/savedjobs")}> Saved jobs
+                    </h3>
+                    <h3 onClick={() => setActiveTab("/actionCenter")}> Action Center
+                    </h3>
+                </HeadLineContainer>
+
+                {
+                    activeTab === "/Profile" ? <Profile setActiveTab={setActiveTab} />
+                        : activeTab === "/jobAlerts" ? <JobAlerts />
+                            : activeTab === "/savedjobs" ? <SavedJobs />
+                                : activeTab === "/actionCenter" ? <ActionCenter />
+                                    : <Profile setActiveTab={setActiveTab} />
+                }
+
+
+            </DashboardContainer>
         </MainContainer>
-        )
+    )
 }
 
 export default HrDashboard;
